@@ -1,6 +1,8 @@
 import a_DTS.b_queue.Array;
 import a_DTS.b_queue.ArrayQueue;
 import a_DTS.b_queue.CircleArrayQueue;
+import a_DTS.c_linkedList.SingleLinkedList.Node;
+import a_DTS.c_linkedList.SingleLinkedList.SingleLinkedList;
 
 /**
  * @author smn
@@ -9,30 +11,17 @@ import a_DTS.b_queue.CircleArrayQueue;
  */
 public class Main {
     public static void main(String[] args) {
-        Array arrayQueue = new CircleArrayQueue(3);
-        arrayQueue.addQueue(1);
-        arrayQueue.showQueue();
-        //arrayQueue.delQueue();
+        SingleLinkedList singleLinkedList = new SingleLinkedList();
 
-        arrayQueue.addQueue(2);
-        arrayQueue.showQueue();
-        //arrayQueue.delQueue();
+        singleLinkedList.addByOrder(new Node(1, "1"));
+        singleLinkedList.addByOrder(new Node(2, "2"));
+        singleLinkedList.addByOrder(new Node(4, "4"));
+        singleLinkedList.addByOrder(new Node(8, "8"));
 
-        arrayQueue.addQueue(3);
-        arrayQueue.showQueue();
-        //arrayQueue.delQueue();
+        singleLinkedList.list();
 
-        arrayQueue.addQueue(4);
-        arrayQueue.showQueue();
-        //arrayQueue.delQueue();
-
-        arrayQueue.addQueue(5);
-        arrayQueue.showQueue();
-        //arrayQueue.delQueue();
-
-        arrayQueue.addQueue(6);
-        arrayQueue.showQueue();
-        //arrayQueue.delQueue();
+        singleLinkedList.delete(3);
+        singleLinkedList.list();
 
     }
 }
