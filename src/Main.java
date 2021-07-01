@@ -1,7 +1,6 @@
-import a_DTS.b_queue.Array;
-import a_DTS.b_queue.ArrayQueue;
-import a_DTS.b_queue.CircleArrayQueue;
-import a_DTS.c_linkedList.SingleLinkedList.Node;
+import a_DTS.c_linkedList.DoubleLinkedList.DoubleLinkedList;
+import a_DTS.c_linkedList.DoubleLinkedList.DoubleNode;
+import a_DTS.c_linkedList.SingleLinkedList.SingleNode;
 import a_DTS.c_linkedList.SingleLinkedList.SingleLinkedList;
 
 /**
@@ -11,17 +10,14 @@ import a_DTS.c_linkedList.SingleLinkedList.SingleLinkedList;
  */
 public class Main {
     public static void main(String[] args) {
-        SingleLinkedList singleLinkedList = new SingleLinkedList();
+        DoubleLinkedList doubleLinkedList = new DoubleLinkedList();
+        doubleLinkedList.addByOrder(new DoubleNode(1, "1"));
+        doubleLinkedList.addByOrder(new DoubleNode(4, "4"));
+        doubleLinkedList.addByOrder(new DoubleNode(8, "8"));
+        doubleLinkedList.addByOrder(new DoubleNode(6, "6"));
+        doubleLinkedList.addByOrder(new DoubleNode(10, "10"));
 
-        singleLinkedList.addByOrder(new Node(1, "1"));
-        singleLinkedList.addByOrder(new Node(2, "2"));
-        singleLinkedList.addByOrder(new Node(4, "4"));
-        singleLinkedList.addByOrder(new Node(8, "8"));
-
-        singleLinkedList.list();
-
-        singleLinkedList.delete(3);
-        singleLinkedList.list();
+        doubleLinkedList.list();
 
     }
 }

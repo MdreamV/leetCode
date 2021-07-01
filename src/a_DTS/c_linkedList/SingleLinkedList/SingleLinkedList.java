@@ -7,23 +7,23 @@ package a_DTS.c_linkedList.SingleLinkedList;
  */
 public class SingleLinkedList {
     //初始化头节点，头节点不要动
-    private Node head = new Node(0, "0");
+    private SingleNode head = new SingleNode(0, "0");
 
-    public Node getHead () {
+    public SingleNode getHead () {
         return head;
     }
 
     /**
      * 添加一个节点到链表中
-     * @param node
+     * @param singleNode
      */
-    public void add(Node node) {
+    public void add(SingleNode singleNode) {
         //不考虑编号的顺序
         //找到当前链表的最后一个节点
         //最后一个节点的next指向参数
 
         //因为head节点不能动，所以要一个辅助指针 temp
-        Node temp = head;
+        SingleNode temp = head;
         //遍历链表
 
         while (true) {
@@ -36,7 +36,7 @@ public class SingleLinkedList {
         }
 
         //当退出循环时，temp指向了最后
-        temp.next = node;
+        temp.next = singleNode;
     }
 
     /**
@@ -49,7 +49,7 @@ public class SingleLinkedList {
             return;
         }
         //因为head节点不能动，所以要一个辅助指针 temp
-        Node temp = head.next;
+        SingleNode temp = head.next;
 
         while (true) {
             if (temp == null) {
@@ -65,14 +65,14 @@ public class SingleLinkedList {
     /**
      * 展示列表
      */
-    public static void list(Node head) {
+    public static void list(SingleNode head) {
         //链表为空
         if (head.next == null) {
             System.out.println("NULL!");
             return;
         }
         //因为head节点不能动，所以要一个辅助指针 temp
-        Node temp = head.next;
+        SingleNode temp = head.next;
 
         while (true) {
             if (temp == null) {
@@ -87,38 +87,38 @@ public class SingleLinkedList {
 
     /**
      * 按顺序把节点插入到链表中间
-     * @param node
+     * @param singleNode
      */
-    public void addByOrder(Node node) {
+    public void addByOrder(SingleNode singleNode) {
         //因为head节点不能动，所以要一个辅助指针 temp
         //temp需要是要添加位置的前一个位置
-        Node temp = head;
+        SingleNode temp = head;
 
         while (true) {
             if(temp.next == null) {
                 break;
             }
 
-            if (temp.next.no == node.no) {
+            if (temp.next.no == singleNode.no) {
                 throw new RuntimeException("已存在，不能添加");
-            } else if (temp.next.no > node.no) {
+            } else if (temp.next.no > singleNode.no) {
                 break;
             }
             temp = temp.next;
         }
 
         //添加
-        node.next = temp.next;
-        temp.next = node;
+        singleNode.next = temp.next;
+        temp.next = singleNode;
 
     }
 
     /**
      * 修改节点的信息，根据No来修改
-      * @param node
+      * @param singleNode
      */
-    public void update(Node node) {
-        Node temp = head.next;
+    public void update(SingleNode singleNode) {
+        SingleNode temp = head.next;
         //链表为空
         if (head.next == null) {
             System.out.println("NULL!");
@@ -129,9 +129,9 @@ public class SingleLinkedList {
             if (temp == null) {
                 return;
             }
-            if (temp.no == node.no) {
-                //temp = node;
-                temp.name = node.name;
+            if (temp.no == singleNode.no) {
+                //temp = singleNode;
+                temp.name = singleNode.name;
                 break;
             }
             temp = temp.next;
@@ -144,7 +144,7 @@ public class SingleLinkedList {
      * @param no
      */
     public void delete(int no) {
-        Node temp = head.next;
+        SingleNode temp = head.next;
         //链表为空
         if (head.next == null) {
             System.out.println("NULL!");
@@ -169,7 +169,7 @@ public class SingleLinkedList {
      */
     public int count() {
         int count = 0;
-        Node temp = head.next;
+        SingleNode temp = head.next;
         if (head.next == null) {
             return 0;
         }

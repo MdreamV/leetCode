@@ -10,10 +10,10 @@ public class Questions {
     public static void main(String[] args) {
 
         SingleLinkedList singleLinkedList = new SingleLinkedList();
-        singleLinkedList.addByOrder(new Node(1, "1"));
-        singleLinkedList.addByOrder(new Node(2, "2"));
-        singleLinkedList.addByOrder(new Node(4, "4"));
-        singleLinkedList.addByOrder(new Node(8, "8"));
+        singleLinkedList.addByOrder(new SingleNode(1, "1"));
+        singleLinkedList.addByOrder(new SingleNode(2, "2"));
+        singleLinkedList.addByOrder(new SingleNode(4, "4"));
+        singleLinkedList.addByOrder(new SingleNode(8, "8"));
         singleLinkedList.list();
         System.out.println("======================");
         printReverse(singleLinkedList);
@@ -35,10 +35,10 @@ public class Questions {
      * @param linkedList
      * @return
      */
-    public static Node getNodeDes(SingleLinkedList linkedList, int k) {
+    public static SingleNode getNodeDes(SingleLinkedList linkedList, int k) {
         int count = linkedList.count();
         int index = count - k;
-        Node temp = linkedList.getHead();
+        SingleNode temp = linkedList.getHead();
         for (int i = 0; i <= index; i++) {
             if (temp.next == null) {
                 throw new RuntimeException("error");
@@ -56,14 +56,14 @@ public class Questions {
      */
     public static void reverse(SingleLinkedList linkedList) {
         //1.定义一个新的head
-        Node reverseHead = new Node(0, "");
+        SingleNode reverseHead = new SingleNode(0, "");
         //2.遍历老的链表，每次遍历到节点，拿出来挂到reverseHead后面。
-        Node head = linkedList.getHead();
+        SingleNode head = linkedList.getHead();
         if (head.next == null) {
             System.out.println("error");
         }
-        Node temp = head.next;
-        Node next = null;
+        SingleNode temp = head.next;
+        SingleNode next = null;
         while (temp != null) {
             //先保存temp的下一个节点
             next = temp.next;
@@ -89,15 +89,15 @@ public class Questions {
      * @param linkedList
      */
     public static void printReverse(SingleLinkedList linkedList) {
-        Node head = linkedList.getHead();
+        SingleNode head = linkedList.getHead();
         print(head.next);
     }
 
-    public static void print(Node node) {
-        if (node.next != null) {
-            print(node.next);
+    public static void print(SingleNode singleNode) {
+        if (singleNode.next != null) {
+            print(singleNode.next);
         }
-        System.out.println(node);
+        System.out.println(singleNode);
 
     }
 
